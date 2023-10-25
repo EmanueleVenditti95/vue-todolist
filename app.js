@@ -36,7 +36,10 @@ createApp({
         }
     },
     methods: {
-
+        removeTask(removeIndex){
+            this.tasks.splice(removeIndex,1)
+            console.log(this.tasks,removeIndex)
+        }
     },
     mounted() {
         console.log('vue ok');
