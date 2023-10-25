@@ -9,6 +9,8 @@
 </head>
 <body>
     <div id="app"> 
+        <input type="text" placeholder="Aggiungi una task..." v-model="newTask">
+        <button @click="addTask(newTask)">Aggiungi</button>
         <section>
             <h1>New Task</h1>
             <ul>

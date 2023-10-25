@@ -3,6 +3,7 @@ const {createApp} = Vue;
 createApp({
     data() {
         return {
+            newTask : '',
             tasks : [
                 {
                     text : 'Quarterly Newsletter',
@@ -19,26 +20,22 @@ createApp({
                 },{
                     text : 'Recruiting blog post',
                     done : true,
-                },{
-                    text : 'Recruiting blog post',
-                    done : false,
-                },{
-                    text : 'Recruiting blog post',
-                    done : true,
-                },{
-                    text : 'Recruiting blog post',
-                    done : false,
-                },{
-                    text : 'Recruiting blog post',
-                    done : true,
                 }
             ]
         }
     },
     methods: {
         removeTask(removeIndex){
-            this.tasks.splice(removeIndex,1)
-            console.log(this.tasks,removeIndex)
+            this.tasks.splice(removeIndex,1);
+        },
+
+        addTask(task){
+            const taskObj = {};
+            const done = false;
+            taskObj.text = task;
+            taskObj.done = done;
+            this.tasks.unshift(taskObj);
+            console.log(taskObj,this.tasks)
         }
     },
     mounted() {
