@@ -30,12 +30,22 @@ createApp({
         },
 
         addTask(task){
-            const taskObj = {};
-            const done = false;
-            taskObj.text = task;
-            taskObj.done = done;
+            const taskObj = {
+                text : task.trim(),
+                done : false
+            };
+            this.newTask = '';
             this.tasks.unshift(taskObj);
-            console.log(taskObj,this.tasks)
+        },
+
+        markTask(task){
+            console.log(task.done)
+            if (task.done === true){
+                task.done = false;
+            } else {
+                task.done = true;
+            } 
+            // task.done = !task.done VERSIONE BREVE     
         }
     },
     mounted() {

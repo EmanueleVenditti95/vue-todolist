@@ -14,13 +14,14 @@
         @keyup.enter="addTask(newTask)">
 
         <button @click="addTask(newTask)">Aggiungi</button>
-        
+
         <section>
             <h1>New Task</h1>
             <ul>
                 <li v-for="(task,index) in tasks">
-                   <h1 :class="task.done === true ? 'marked' : ''" >{{ task.text }}
-                    <span><button @click="removeTask(index)">X</button></span>
+                   <h1 @click="markTask(task)" :class="task.done === true ? 'marked' : ''" >
+                   {{ task.text }}
+                    <span><button @click.stop="removeTask(index)">X</button></span>
                    </h1> 
                 </li>
             </ul>
